@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alicorp | Migración SAP a Azure</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fb;
+  color: #18304d;
+}
+
+header {
+  background: white;
+  padding: 20px 8%;
+  border-bottom: 1px solid #dce4ef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+  color: #e23d43;
+}
+
+.etiqueta {
+  background: #e8f0ff;
+  color: #1763cf;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px 20px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+h2 { font-size: 23px; }
+
+p {
+  color: #63748a;
+  line-height: 1.6;
+}
+
+.intro { max-width: 800px; }
+
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 30px 0;
+}
+
+.tarjeta, .panel {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #dfe6f0;
+}
+
+.numero {
+  font-size: 36px;
+  font-weight: bold;
+  color: #1763cf;
+}
+
+.panel { margin-bottom: 25px; }
+
+.botones {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background: #e8eef7;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button.activo {
+  background: #1763cf;
+  color: white;
+}
+
+.diagrama {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.nodo {
+  flex: 1;
+  padding: 25px 12px;
+  background: #edf4ff;
+  border: 1px solid #c9daf7;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.nodo strong {
+  display: block;
+  margin: 12px 0;
+}
+
+.nodo span {
+  color: #63748a;
+  font-size: 13px;
+}
+
+.icono { font-size: 32px; }
+
+.flecha {
+  font-size: 27px;
+  color: #7895bd;
+}
+
+.estado {
+  padding: 17px;
+  background: #fff2e9;
+  border-radius: 10px;
+  color: #93512e;
+}
+
+.estado.mejorado {
+  background: #e6f8f0;
+  color: #087b56;
+}
+
+.resultados {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.barra {
+  height: 20px;
+  background: #e5ebf3;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.relleno {
+  height: 100%;
+  background: #1763cf;
+}
+
+.verde { background: #12a77b; }
+
+.dato {
+  display: inline-block;
+  background: #edf4ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+footer {
+  font-size: 12px;
+  color: #66778d;
+  padding: 25px 0;
+}
+
+@media(max-width: 700px) {
+  .indicadores, .resultados {
+    grid-template-columns: 1fr;
+  }
+
+  .diagrama { flex-direction: column; }
+  .nodo { width: 100%; }
+  .flecha { transform: rotate(90deg); }
+  h1 { font-size: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">alicorp</div>
+  <div class="etiqueta">Prototipo TIG | Vibecoding</div>
+</header>
+
+<main>
+
+<section>
+  <h1>Transformación tecnológica de Alicorp</h1>
+  <p class="intro">
+    Conoce cómo Alicorp migró su plataforma SAP
+    desde una nube privada administrada por un
+    proveedor externo hacia Microsoft Azure.
+    Este prototipo representa visualmente
+    la solución tecnológica implementada.
+  </p>
+</section>
+
+<section class="indicadores">
+
+  <div class="tarjeta">
+    <div class="numero">47%</div>
+    <p>Reducción reportada de costos de infraestructura y gestión.</p>
+  </div>
+
+  <div class="tarjeta">
+    <div class="numero">&lt; 4 meses</div>
+    <p>Tiempo reportado de ejecución de la migración.</p>
+  </div>
+
+  <div class="tarjeta">
+    <div class="numero">2,500+</div>
+    <p>Usuarios beneficiados en cinco países latinoamericanos.</p>
+  </div>
+
+</section>
+
+<section class="panel">
+
+  <h2>Infraestructura tecnológica: antes y después</h2>
+  <p>
+    Selecciona una opción para observar cómo cambió
+    el alojamiento de la plataforma SAP.
+  </p>
+
+  <div class="botones">
+    <button id="antes" class="activo" onclick="mostrar(false)">
+      Antes
+    </button>
+
+    <button id="despues" onclick="mostrar(true)">
+      Después
+    </button>
+  </div>
+
+  <div class="diagrama">
+
+    <div class="nodo">
+      <div class="icono">👥</div>
+      <strong>Usuarios de Alicorp</strong>
+      <span>Operaciones empresariales</span>
+    </div>
+
+    <div class="flecha">→</div>
+
+    <div class="nodo">
+      <div class="icono" id="iconoNube">☁️</div>
+      <strong id="nombreNube">Nube privada externa</strong>
+      <span id="descripcionNube">
+        Infraestructura administrada por un proveedor externo
+      </span>
+    </div>
+
+    <div class="flecha">→</div>
+
+    <div class="nodo">
+      <div class="icono">🗂️</div>
+      <strong>Plataforma SAP</strong>
+      <span>Aplicaciones y datos empresariales</span>
+    </div>
+
+  </div>
+
+  <div class="estado" id="estado">
+    Situación anterior: costos elevados de infraestructura
+    y gestión, junto con una calidad de servicio
+    inferior a las expectativas reportadas.
+  </div>
+
+</section>
+
+<section class="resultados">
+
+  <div class="panel">
+
+    <h2>Impacto económico</h2>
+    <p>
+      Comparación ilustrativa de los costos de
+      infraestructura y gestión.
+    </p>
+
+    <strong>Antes: índice 100</strong>
+    <div class="barra">
+      <div class="relleno" style="width:100%"></div>
+    </div>
+
+    <strong>Después: índice 53</strong>
+    <div class="barra">
+      <div class="relleno verde" style="width:53%"></div>
+    </div>
+
+    <p>
+      La diferencia representa la reducción del 47%
+      reportada en el caso. Los índices 100 y 53
+      son ilustrativos, no montos reales.
+    </p>
+
+  </div>
+
+  <div class="panel">
+
+    <h2>Resultados de la migración</h2>
+
+    <p>
+      Alicorp mantuvo SAP como plataforma empresarial,
+      pero cambió la infraestructura donde estaba alojada.
+    </p>
+
+    <div class="dato">
+      <strong>46 horas</strong>
+      <p>Ventana reportada de migración a producción.</p>
+    </div>
+
+    <div class="dato">
+      <strong>5 países</strong>
+      <p>Alcance de usuarios beneficiados.</p>
+    </div>
+
+    <p>
+      La migración permitió reducir costos de
+      infraestructura y gestión, según el caso publicado.
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+  <p>
+    Prototipo académico desarrollado mediante ChatGPT.
+    Representación conceptual sin conexión a SAP ni Azure.
+  </p>
+
+  <p>
+    Fuente:
+    <a href="https://www.microsoft.com/es/customers/story/1724299518402073426-alicorp-azure-consumer-goods-es-peru"
+       target="_blank">
+      Caso de éxito de Alicorp publicado por Microsoft
+    </a>
+  </p>
+</footer>
+
+</main>
+
+<script>
+function mostrar(despues) {
+
+  const botonAntes = document.getElementById("antes");
+  const botonDespues = document.getElementById("despues");
+  const nombre = document.getElementById("nombreNube");
+  const descripcion = document.getElementById("descripcionNube");
+  const icono = document.getElementById("iconoNube");
+  const estado = document.getElementById("estado");
+
+  if (despues) {
+
+    botonAntes.classList.remove("activo");
+    botonDespues.classList.add("activo");
+
+    nombre.textContent = "Microsoft Azure";
+
+    descripcion.textContent =
+      "Infraestructura cloud que aloja la plataforma SAP";
+
+    icono.textContent = "🌐";
+
+    estado.classList.add("mejorado");
+
+    estado.textContent =
+      "Situación posterior: plataforma SAP alojada en Azure. " +
+      "El caso reporta una reducción del 47% en los costos " +
+      "de infraestructura y gestión.";
+
+  } else {
+
+    botonAntes.classList.add("activo");
+    botonDespues.classList.remove("activo");
+
+    nombre.textContent = "Nube privada externa";
+
+    descripcion.textContent =
+      "Infraestructura administrada por un proveedor externo";
+
+    icono.textContent = "☁️";
+
+    estado.classList.remove("mejorado");
+
+    estado.textContent =
+      "Situación anterior: costos elevados de infraestructura " +
+      "y gestión, junto con una calidad de servicio " +
+      "inferior a las expectativas reportadas.";
+  }
+}
+</script>
+
+</body>
+</html>
